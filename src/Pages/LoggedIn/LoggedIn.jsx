@@ -1,19 +1,38 @@
+import { Route, Routes } from "react-router-dom";
 import Nav from "../../Components/Nav/Nav";
 import Deliveries from "../Deliveries/Deliveries";
 import Equipment from "../Equipment/Equipment";
-import "./LoggedIn.scss";
+import Home from "../Home/Home";
 
 const LoggedIn = () => {
 
     return (
-        <main className="main">
-            <div className="main__nav">
-                <Nav />
-            </div>
-            <div className="main__content">
-                <Equipment />
-            </div>
-        </main>
+        <Routes>
+            <Route 
+                path="*" 
+                element={
+                    <>
+                        <Nav />
+                        <Home />
+                    </>
+                } />
+            <Route 
+                path="/addTemperature" 
+                element={
+                    <>
+                        <Nav />
+                        <Equipment />
+                    </>
+                } />
+            <Route 
+                path="/addDelivery" 
+                element={
+                    <>
+                        <Nav />
+                        <Deliveries />
+                    </>
+                } />  
+        </Routes>
     )
 
 }
