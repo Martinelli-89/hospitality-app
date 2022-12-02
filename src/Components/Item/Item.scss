@@ -1,0 +1,42 @@
+@use "../../Styles/color.scss" as *;
+
+.item {
+
+    width: 98%;
+    height: 2rem;
+    display: grid;
+    grid-template-areas: 
+        "item serial addTemp update removeS";
+    grid-template-columns: 30% 16% 18% 18% 18%;
+    justify-items: center;
+    align-items: center;
+    background-color: $cream;
+    border-radius: 25px;
+    margin-bottom: 1rem;
+
+    &__name{
+        grid-area: item;
+    }
+
+    &__serial{
+        grid-area: serial;
+    }
+
+    &__add{
+        grid-area: addTemp;
+    }
+
+    &__update{
+        grid-area: update;
+    }
+
+    &__remove{
+        grid-area: removeS;
+    }
+
+    img {
+        height: 1.8rem;
+        aspect-ratio: 1 / 1;
+    }
+
+}

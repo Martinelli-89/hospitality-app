@@ -1,0 +1,38 @@
+@use "../../Styles/color.scss" as *;
+
+.supplier {
+
+    width: 98%;
+    height: 2rem;
+    display: grid;
+    grid-template-areas: 
+        "supplier addDelivery update removeS";
+    grid-template-columns: 46% 18% 18% 18%;
+    justify-items: center;
+    align-items: center;
+    background-color: $cream;
+    border-radius: 25px;
+    margin-bottom: 1rem;
+
+    &__name{
+        grid-area: supplier;
+    }
+
+    &__add{
+        grid-area: addDelivery;
+    }
+
+    &__update{
+        grid-area: update;
+    }
+
+    &__remove{
+        grid-area: removeS;
+    }
+
+    img {
+        height: 1.8rem;
+        aspect-ratio: 1 / 1;
+    }
+
+}

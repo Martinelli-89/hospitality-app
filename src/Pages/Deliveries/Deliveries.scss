@@ -1,0 +1,56 @@
+@use "../../Styles/color.scss" as *;
+
+.deliveries {
+
+    width: 100%;
+    height: 100%;
+    background-color: $dark;
+    color: $purple;
+
+
+    &__grid {
+        height: 25%;
+        display: grid;
+        grid-template-areas: 
+            "options options options options"
+            "supplier addDelivery update removeS";
+        grid-template-columns: 46% 18% 18% 18%;
+        grid-template-rows: 1fr 1fr;
+        justify-items: center;
+        align-items: center;
+
+    }
+
+    &__options{
+        grid-area: options;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        justify-self: end;
+        padding-right: 3rem;
+    }
+
+    &__supplier {
+        grid-area: supplier;
+    }
+
+    &__addDelivery {
+        grid-area: addDelivery;
+    }
+
+    &__update {
+        grid-area: update;
+    }
+
+    &__remove {
+        grid-area: removeS;
+    }
+
+    &__data {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+}

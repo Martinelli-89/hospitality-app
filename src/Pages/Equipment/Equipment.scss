@@ -1,0 +1,60 @@
+@use "../../Styles/color.scss" as *;
+
+.equipment {
+
+    width: 100%;
+    height: 100%;
+    background-color: $dark;
+    color: $purple;
+
+
+    &__grid {
+        height: 25%;
+        display: grid;
+        grid-template-areas: 
+            "options options options options options"
+            "item serial addTemperature update removeE";
+        grid-template-columns: 30% 16% 18% 18% 18%;
+        grid-template-rows: 1fr 1fr;
+        justify-items: center;
+        align-items: center;
+
+    }
+
+    &__options{
+        grid-area: options;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        justify-self: end;
+        padding-right: 3rem;
+    }
+
+    &__item {
+        grid-area: item;
+    }
+
+    &__serial{
+        grid-area: serial;
+    }
+
+    &__addTemperature {
+        grid-area: addTemperature;
+    }
+
+    &__update {
+        grid-area: update;
+    }
+
+    &__remove {
+        grid-area: removeE;
+    }
+
+    &__data {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+}
