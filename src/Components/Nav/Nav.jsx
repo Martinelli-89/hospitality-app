@@ -8,15 +8,28 @@ const Nav = () => {
 
     return (
         <nav className="nav">
-            <div className="nav__delivery">
-                <AddButton  text={"Add delivery"} image={delivery}/>
-            </div>
-            <div className="nav__temperature">
-                <AddButton  text={"Add temperature"} image={equipment}/>
+            <div className="nav__menu">
+                <h2 className="nav__title">Menu</h2>
+                <div className="nav__deliveries">
+                    <img src={delivery} alt="delivery logo"></img>
+                    <h4>Deliveries</h4>
+                </div>
+                <div className="nav__deliveriesOptions">
+                    <p className="nav__add">Add delivery</p>
+                    <p className="nav__search">Search deliveries</p>
+                </div>
+                <div className="nav__equipment">
+                    <img src={equipment} alt="equipment logo"></img>
+                    <h4>Equipment</h4>
+                </div>
+                <div className="nav__equipmentOptions">
+                    <p className="nav__add">Add temperature</p>
+                    <p className="nav__search">Search temperatures</p>
+                </div>
             </div>
             <div className="nav__logout">
-                <AddButton  text={"Sign out"} image={logout}/>
-            </div>     
+                <AddButton text={"Sign out"} image={logout} />
+            </div>
         </nav>
     )
 
