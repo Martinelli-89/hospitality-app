@@ -36,7 +36,6 @@
     &__deliveriesOptions, &__equipmentOptions {
         display: flex;
         flex-direction: column;
-        align-items: center;
     }
 
     &__add, &__search {
@@ -45,6 +44,7 @@
 
     &__logout {
         width: 80%;
+        height: 3rem;
     }
 
 }

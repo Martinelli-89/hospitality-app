@@ -3,14 +3,14 @@
 .addButton {
 
     width: 100%;
-    aspect-ratio: 3 / 1;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     color: $purple;
     background-color: $dark;
     border: 1px solid $purple;
-    border-radius: 15px;
+    border-radius:215px;
     text-align: center;
 
     img {

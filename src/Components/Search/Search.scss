@@ -1,0 +1,31 @@
+@use "../../Styles/color.scss" as *;
+
+.search {
+
+    width: 12rem;
+    height: 3rem;
+    display: grid;
+    align-content: center;
+    align-items: center;
+    grid-template-columns: 2% 10% 4% 86% 8%;
+    grid-template-areas: ". iconLens . search .";
+    background-color: $cream;
+    border-radius: 25px;
+
+    &__icon {
+        grid-area: iconLens;
+        width: 95%;
+        aspect-ratio: 1 / 1;
+        background-color: $cream;
+    }
+
+    &__input {
+        grid-area: search;
+        border: none;
+        height: 100%;
+        width: 90%;
+        background-color: $cream;
+        font-size: 1.25rem;
+    }
+
+}

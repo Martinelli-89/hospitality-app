@@ -1,5 +1,8 @@
+import AddButton from "../../Components/AddButton/AddButton";
 import Item from "../../Components/Item/Item";
+import Search from "../../Components/Search/Search";
 import "./Equipment.scss";
+import addItem from "../../Data/Images/addItem.svg";
 
 const Equipment = () => {
 
@@ -8,8 +11,10 @@ const Equipment = () => {
         <section className="equipment">
             <section className="equipment__grid">
                 <div className="equipment__options">
-                    <div>Filter</div>
-                    <div>Add equipment</div>
+                    <Search />
+                    <div className="equipment__addItem">
+                        <AddButton text="Add item" image={addItem} alt="add supplier icon"></AddButton>
+                    </div>
                 </div>
                 <p className="equipment__item">Item</p>
                 <p className="equipment__serial">Serial</p>
