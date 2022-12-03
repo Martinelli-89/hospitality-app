@@ -1,0 +1,55 @@
+@use "../../Styles/color.scss" as *;
+
+.addSupplierForm {
+
+    width: 85%;
+    height: 90%;
+    display: grid;
+    grid-template-columns: 10% 25% 55% 10%;
+    grid-template-rows: 10% 20% 20% 20% 20% 10%;
+    grid-template-areas: 
+        "close close close close"
+        ". nameSup nameInput ."
+        ". accNumb accNumbInput ."
+        ". email emailInput ."
+        ". phone phoneInput ."
+        ". . . .";
+    align-items: center;
+    justify-items: center;
+    color: $purple;
+
+    &__name {
+        grid-area: nameSup;
+    }
+
+    &__nameInput {
+        grid-area: nameInput;
+    }
+
+    &__accNumb {
+        grid-area: accNumb;
+    }
+    &__accNumbInput {
+        grid-area: accNumbInput;
+    }
+    &__email {
+        grid-area: email;
+    }
+    &__emailInput {
+        grid-area: emailInput;
+    }
+    &__phone {
+        grid-area: phone;
+    }
+    &__phoneInput {
+        grid-area: phoneInput;
+    }
+
+    &__close {
+        grid-area: close;
+        justify-self: end;
+        height: 2rem;
+        aspect-ratio: 1 / 1;
+
+    }
+}

@@ -1,0 +1,51 @@
+@use "../../Styles/color.scss" as *;
+
+.addEquipmentForm {
+
+    width: 85%;
+    height: 90%;
+    display: grid;
+    grid-template-columns: 10% 25% 55% 10%;
+    grid-template-rows: 12% 26% 26% 26% 12%;
+    grid-template-areas: 
+        "close close close close"
+        ". serial serialInput ."
+        ". type typeInput ."
+        ". serviced servicedInput ."
+        ". . . .";
+    align-items: center;
+    justify-items: center;
+    color: $purple;
+
+    &__serial {
+        grid-area: serial;
+    }
+
+    &__serialInput {
+        grid-area: serialInput;
+    }
+
+    &__type {
+        grid-area: type;
+    }
+
+    &__typeInput {
+        grid-area: typeInput;
+    }
+
+    &__lastServiced {
+        grid-area: serviced;
+    }
+    
+    &__lastServicedInput {
+        grid-area: servicedInput;
+    }
+
+    &__close {
+        grid-area: close;
+        justify-self: end;
+        height: 2rem;
+        aspect-ratio: 1 / 1;
+
+    }
+}
