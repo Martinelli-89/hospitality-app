@@ -1,0 +1,55 @@
+@use "../../Styles/color.scss" as *;
+
+.addDeliveryForm {
+
+    width: 85%;
+    height: 90%;
+    display: grid;
+    grid-template-columns: 10% 25% 55% 10%;
+    grid-template-rows: 10% 20% 20% 20% 20% 10%;
+    grid-template-areas: 
+        "close close close close"
+        ". supplier supplierName ."
+        ". type typeInput ."
+        ". temperature temperatureInput ."
+        ". date dateInput ."
+        ". . . .";
+    align-items: center;
+    justify-items: center;
+    color: $purple;
+
+    &__supplier {
+        grid-area: supplier;
+    }
+
+    &__supplierName {
+        grid-area: supplierName;
+    }
+
+    &__type {
+        grid-area: type;
+    }
+    &__typeInput {
+        grid-area: typeInput;
+    }
+    &__temperature {
+        grid-area: temperature;
+    }
+    &__temperatureInput {
+        grid-area: temperatureInput;
+    }
+    &__date {
+        grid-area: date;
+    }
+    &__dateInput {
+        grid-area: dateInput;
+    }
+
+    &__close {
+        grid-area: close;
+        justify-self: end;
+        height: 2rem;
+        aspect-ratio: 1 / 1;
+
+    }
+}

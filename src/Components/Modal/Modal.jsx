@@ -1,8 +1,10 @@
 import AddSupplierForm from "../AddSupllierForm/AddSupplier";
 import AddEquipmentForm from "../AddEquipment/AddEquipment";
+import AddTemperatureForm from "../AddTemperatureForm/AddTemperature";
+import AddDeliveryForm from "../AddDeliveryForm/AddDeliveryForm";
 import "./Modal.scss";
 
-const Modal = ({type, close}) => {
+const Modal = ({type, close, data}) => {
 
     let render;
 
@@ -12,6 +14,14 @@ const Modal = ({type, close}) => {
 
     if(type == "item") {
         render = <AddEquipmentForm closeModal={close}/>;
+    }
+
+    if(type == "Add item") {
+        render = <AddTemperatureForm data={data} closeModal={close}/>;
+    }
+
+    if(type == "Add delivery") {
+        render = <AddDeliveryForm data={data} closeModal={close}/>;
     }
 
     return (

@@ -36,7 +36,7 @@ const Equipment = () => {
                 <p className="equipment__remove">Remove</p>
             </section>
             <div className="equipment__data">
-                <Item name="Fridge" serial="AB345YZ"/>
+                <Item name="Hot Plate" serial="*&AFT%"/>
                 <Item name="Fridge" serial="AB345YZ"/>
             </div>
             {modal && <Modal type={"item"} close={toggleModal}/>}
