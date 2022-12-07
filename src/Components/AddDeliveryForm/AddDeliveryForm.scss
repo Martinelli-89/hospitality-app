@@ -6,14 +6,15 @@
     height: 90%;
     display: grid;
     grid-template-columns: 10% 25% 55% 10%;
-    grid-template-rows: 10% 20% 20% 20% 20% 10%;
+    grid-template-rows: 8% 16% 16% 16% 16% 16% 8%;
     grid-template-areas: 
         "close close close close"
         ". supplier supplierName ."
         ". type typeInput ."
         ". temperature temperatureInput ."
         ". date dateInput ."
-        ". . . .";
+        ". accepted acceptedInput ."
+        ". submit submit .";
     align-items: center;
     justify-items: center;
     color: $purple;
@@ -50,6 +51,19 @@
         justify-self: end;
         height: 2rem;
         aspect-ratio: 1 / 1;
+    }
 
+    &__submit {
+        grid-area: submit;
+        width: 5rem;
+        aspect-ratio: 3 / 1;
+    }
+
+    &__accepted {
+        grid-area: accepted;
+    }
+
+    &__acceptedInput {
+        grid-area: acceptedInput;
     }
 }

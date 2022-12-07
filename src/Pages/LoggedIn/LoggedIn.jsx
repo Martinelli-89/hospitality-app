@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import Nav from "../../Components/Nav/Nav";
 import Deliveries from "../Deliveries/Deliveries";
@@ -5,6 +7,27 @@ import Equipment from "../Equipment/Equipment";
 import Home from "../Home/Home";
 
 const LoggedIn = () => {
+
+    const [suppliers, setSuppliers] = useState([]);
+    const [equipment, setEquipment] = useState([]);
+
+    const getAllSuppliers = async () => {
+        const response = await fetch("http://localhost:8080/suppliers");
+        const data = await response.json();
+        setSuppliers(data); 
+    }
+
+    const getAllEquipment = async () => {
+        const response = await fetch("http://localhost:8080/equipments");
+        const data = await response.json();
+        console.log(await data);
+        setEquipment(data); 
+    }
+
+    useEffect(() => {
+        getAllSuppliers();
+        getAllEquipment();
+    }, [])
 
     return (
         <Routes>
@@ -21,7 +44,10 @@ const LoggedIn = () => {
                 element={
                     <>
                         <Nav />
-                        <Equipment />
+                        <Equipment 
+                            equipment={equipment}
+                            getAllEquipment={getAllEquipment}
+                        />
                     </>
                 } />
             <Route 
@@ -29,7 +55,10 @@ const LoggedIn = () => {
                 element={
                     <>
                         <Nav />
-                        <Deliveries />
+                        <Deliveries 
+                            suppliers={suppliers}
+                            getAllSuppliers={getAllSuppliers}
+                        />
                     </>
                 } />  
         </Routes>

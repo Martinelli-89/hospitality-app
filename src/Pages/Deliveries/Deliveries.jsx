@@ -1,12 +1,13 @@
 import { useState } from "react";
+import { useEffect } from "react";
 import AddButton from "../../Components/AddButton/AddButton";
 import Supplier from "../../Components/Supplier/Supplier";
 import Search from "../../Components/Search/Search";
 import Modal from "../../Components/Modal/Modal";
 import "./Deliveries.scss";
-import addSupplier from "../../Data/Images/addSupplierVan.svg";
+import addSupplierSvg from "../../Data/Images/addSupplierVan.svg";
 
-const Deliveries = () => {
+const Deliveries = ({suppliers, getAllSuppliers}) => {
 
     const [modal, setModal] = useState (false);
 
@@ -21,7 +22,7 @@ const Deliveries = () => {
                     <div className="deliveries__addSupplier">
                         <AddButton 
                             text="Add supplier" 
-                            image={addSupplier} 
+                            image={addSupplierSvg} 
                             alt="add supplier icon" 
                             onClick={toggleModal}></AddButton>
                     </div>
@@ -32,10 +33,11 @@ const Deliveries = () => {
                 <p className="deliveries__remove">Remove</p>
             </section>
             <div className="deliveries__data">
-                <Supplier name="Tesco" />
-                <Supplier name="Arthur David" />
+                {suppliers.map((supplier, index) => { 
+                    return <Supplier key={index} name={supplier} getAllSuppliers={getAllSuppliers}/>
+                })}
             </div>
-            {modal && <Modal type="supplier" close={toggleModal}/>}
+            {modal && <Modal type="supplier" close={toggleModal} getAllSuppliers={getAllSuppliers}/>}
         </section>
 
     )

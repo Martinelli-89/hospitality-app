@@ -6,12 +6,13 @@
     height: 90%;
     display: grid;
     grid-template-columns: 10% 25% 55% 10%;
-    grid-template-rows: 12% 26% 26% 26% 12%;
+    grid-template-rows: 10% 24% 24% 24% 10% 10%;
     grid-template-areas: 
         "close close close close"
         ". serial serialInput ."
         ". type typeInput ."
         ". serviced servicedInput ."
+        ". submit submit ."
         ". . . .";
     align-items: center;
     justify-items: center;
@@ -47,5 +48,11 @@
         height: 2rem;
         aspect-ratio: 1 / 1;
 
+    }
+
+    &__submit {
+        grid-area: submit;
+        width: 5rem;
+        aspect-ratio: 3 / 1;
     }
 }

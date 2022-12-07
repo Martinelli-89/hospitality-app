@@ -13,7 +13,7 @@
         ". accNumb accNumbInput ."
         ". email emailInput ."
         ". phone phoneInput ."
-        ". . . .";
+        ". submit submit .";
     align-items: center;
     justify-items: center;
     color: $purple;
@@ -50,6 +50,11 @@
         justify-self: end;
         height: 2rem;
         aspect-ratio: 1 / 1;
+    }
 
+    &__submit {
+        grid-area: submit;
+        width: 5rem;
+        aspect-ratio: 3 / 1;
     }
 }

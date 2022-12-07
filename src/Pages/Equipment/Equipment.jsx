@@ -6,7 +6,7 @@ import "./Equipment.scss";
 import addItem from "../../Data/Images/addItem.svg";
 import { useState } from "react";
 
-const Equipment = () => {
+const Equipment = ({equipment, getAllEquipment}) => {
 
     const [modal, setModal] = useState(false);
 
@@ -36,10 +36,11 @@ const Equipment = () => {
                 <p className="equipment__remove">Remove</p>
             </section>
             <div className="equipment__data">
-                <Item name="Hot Plate" serial="*&AFT%"/>
-                <Item name="Fridge" serial="AB345YZ"/>
+                {equipment.map((item,index) => {
+                    return <Item type={item[0].type} serial={item[0].serial_number} key={Math.random()*index*Math.random()} getAllEquipment={getAllEquipment}/>
+                })}
             </div>
-            {modal && <Modal type={"item"} close={toggleModal}/>}
+            {modal && <Modal type={"item"} close={toggleModal} getAllEquipment={getAllEquipment}/>}
         </section>
 
     )

@@ -1,9 +1,8 @@
-import { useState , useEffect} from "react";
-import {addSupplier} from "../../Utils/APIcalls";
-import "./AddSupplier.scss";
+import { useState, useEffect } from "react";
+import { getSupplier, updateSupplier } from "../../Utils/APIcalls";
 import close from "../../Data/Images/close.svg";
 
-const AddSupplierForm = ({closeModal, getAllSuppliers}) => {
+const UpdateSupplierForm = ({data, closeModal}) => {
 
     const [newSupplier, setNewSupplier] = useState ({
         name: "",
@@ -13,42 +12,38 @@ const AddSupplierForm = ({closeModal, getAllSuppliers}) => {
         }
     )
 
+    const getSupplierInfo = async(supplier) => {
+        const data = await getSupplier(supplier);
+        setNewSupplier({
+            name: data.name,
+            accountNumber: data.accountNumber,
+            email: data.email,
+            phoneNumber: data.phoneNumber
+            })
+        }
+
+    useEffect (() => {
+         getSupplierInfo(data.supplier);
+    }, [])
+
+
     const handleChange = (event) => {
         const { name, value } = event.target;
         setNewSupplier( prevState => ({...prevState, [name]:value}));
     }
 
-    const handleClick = async(e) => { 
-        e.preventDefault();
-        const response = await addSupplier(newSupplier);
-                if(response == 201) {
-                    alert("Suppliers saved on database");
-                    closeModal();
-                    getAllSuppliers();
-                } else if (response == 403) {
-                    alert("Suppliers already exist");
-                } else {
-                    alert("There was a problem, please try again");
-                }
+    const handleSubmit = () => {
+        updateSupplier(newSupplier);
+        closeModal();
     }
 
     return (
 
         <section className="addSupplierForm">
             <p className="addSupplierForm__name">Name</p>
-            <input 
-                className="addSupplierForm__nameInput" 
-                value={newSupplier.name} 
-                name={"name"}
-                onChange={handleChange}>
-            </input>
+            <p className="addSupplierForm__nameInput">{newSupplier.name}</p>
             <p className="addSupplierForm__accNumb">Account number</p>
-            <input 
-                className="addSupplierForm__accNumbInput" 
-                value={newSupplier.accountNumber} 
-                name={"accountNumber"}
-                onChange={handleChange}>
-            </input>
+            <p className="addSupplierForm__accNumbInput">{newSupplier.accountNumber}</p>
             <p className="addSupplierForm__email">Email</p>
             <input 
                 className="addSupplierForm__emailInput" 
@@ -64,11 +59,11 @@ const AddSupplierForm = ({closeModal, getAllSuppliers}) => {
                 onChange={handleChange}>
             </input>
             <img src={close} className="addSupplierForm__close" alt="close icon" onClick={closeModal}></img>
-            <button className="addSupplierForm__submit" onClick={handleClick}>Submit</button>
+            <button className="addSupplierForm__submit" onClick={handleSubmit}>Update</button>
         </section>
 
     )
 
 }
 
-export default AddSupplierForm;
+export default UpdateSupplierForm;
