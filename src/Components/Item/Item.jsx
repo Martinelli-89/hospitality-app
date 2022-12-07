@@ -23,18 +23,28 @@ const Item = ({type, serial, getAllEquipment}) => {
 
     const data= {
         type: type,
-        serial: serial
+        serialNumber: serial
+    }
+
+    const toggleUpdate = () => {
+        setUpdate(!update);
+    }
+
+    const toggleSeeInfo = () => {
+        setSeeInfo(!seeInfo);
     }
 
     return (
 
         <div className="item">
-            <p className="item__name">{type}</p>
-            <p className="item__serial">{serial}</p>
+            <p className="item__name" onClick={toggleSeeInfo}>{type}</p>
+            <p className="item__serial" onClick={toggleSeeInfo}>{serial}</p>
             <img className="item__add" src={add} onClick={toggleModal}></img>
-            <img className="item__update" src={updateSvg}></img>
+            <img className="item__update" src={updateSvg} onClick={toggleUpdate}></img>
             <img className="item__remove" src={remove} onClick={handleClickDelete}></img>
-            {modal && <Modal type="Add item" close={toggleModal} data={data}/>}
+            {modal && <Modal type={"Add temperature"} close={toggleModal} data={data}/>}
+            {update && <Modal type={"Update item"} close={toggleUpdate} data={data} />}
+            {seeInfo && <Modal type={"Info item"} close={toggleSeeInfo} data={data} />}
         </div>
 
     )

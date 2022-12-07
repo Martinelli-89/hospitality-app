@@ -94,3 +94,37 @@ export const deleteEquipment = async (serial) => {
 
     const response = await fetch(`http://localhost:8080/equipment/${serial}`, requestOptions);
 }
+
+export const getEquipment = async (serial) => {
+    
+    const response = await fetch(`http://localhost:8080/equipment/serial=${serial}`);
+    const data = await response.json();
+    
+    return data; 
+}
+
+export const updateEquipment = async (equipment) => {
+
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(equipment)
+    };
+
+    const response = await fetch(`http://localhost:8080/supplier/${equipment.serialNumber}`, requestOptions);
+    return response.status;
+}
+
+//TEMPERATURES
+
+export const addTemperature = async (temperature) => {
+
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(temperature)
+    };
+
+    const response = await fetch("http://localhost:8080/temperature", requestOptions);
+    return response.status;
+}

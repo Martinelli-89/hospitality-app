@@ -3,7 +3,7 @@ import { addDelivery } from '../../Utils/APIcalls';
 import "./AddDeliveryForm.scss";
 import close from "../../Data/Images/close.svg";
 
-const NewItemForm = ({closeModal, data}) => {
+const NewDelivery = ({closeModal, data}) => {
 
     const [delivery, setDelivery] = useState ({
         supplier: data.supplier,
@@ -55,4 +55,4 @@ const NewItemForm = ({closeModal, data}) => {
 
 }
 
-export default NewItemForm;
+export default NewDelivery;

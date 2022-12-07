@@ -1,10 +1,10 @@
+import { useState } from "react";
 import AddButton from "../../Components/AddButton/AddButton";
 import Item from "../../Components/Item/Item";
 import Search from "../../Components/Search/Search";
 import Modal from "../../Components/Modal/Modal"
 import "./Equipment.scss";
 import addItem from "../../Data/Images/addItem.svg";
-import { useState } from "react";
 
 const Equipment = ({equipment, getAllEquipment}) => {
 

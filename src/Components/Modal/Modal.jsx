@@ -1,9 +1,11 @@
 import AddSupplierForm from "../AddSupllierForm/AddSupplier";
 import AddEquipmentForm from "../AddEquipment/AddEquipment";
-import AddTemperatureForm from "../AddTemperatureForm/AddTemperature";
+import AddTemperature from "../AddTemperatureForm/AddTemperature";
 import AddDeliveryForm from "../AddDeliveryForm/AddDeliveryForm";
 import UpdateSupplierForm from "../UpdateSupplierForm/UpdateSupplierForm";
 import SeeSupplierInfo from "../SeeSupplierInfo/SeeSupplierInfo";
+import UpdateEquipmentForm from "../UpdateEquipmentForm/UpdateEquipmentForm";
+import SeeEquipmentInfo from "../SeeEquipmentInfo/SeeEquipmentInfo";
 import "./Modal.scss";
 
 const Modal = ({type, close, data, getAllSuppliers, getAllEquipment}) => {
@@ -26,8 +28,16 @@ const Modal = ({type, close, data, getAllSuppliers, getAllEquipment}) => {
         render = <AddEquipmentForm closeModal={close} getAllEquipment={getAllEquipment}/>;
     }
 
-    if(type == "Add item") {
-        render = <AddTemperatureForm data={data} closeModal={close}/>;
+    if(type == "Add temperature") {
+        render = <AddTemperature data={data} closeModal={close}/>;
+    }
+
+    if(type == "Update item") {
+        render = <UpdateEquipmentForm closeModal={close} data={data}/>;
+    }
+
+    if(type == "Info item") {
+        render = <SeeEquipmentInfo closeModal={close} data={data}/>;
     }
 
     if(type == "Add delivery") {

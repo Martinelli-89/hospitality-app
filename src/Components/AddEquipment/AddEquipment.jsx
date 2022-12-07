@@ -43,7 +43,7 @@ const AddEquipmentForm = ({closeModal, getAllEquipment}) => {
                 <option value="Hot display">Hot Display</option>
             </select>
             <p className="addEquipmentForm__lastServiced">Last serviced</p>
-            <input className="addEquipmentForm__lastServicedInput" value={newItem.date} name={"date"} onChange={handleChange} type={"date"}></input>
+            <input className="addEquipmentForm__lastServicedInput" value={newItem.date} name={"lastServiced"} onChange={handleChange} type={"date"}></input>
             <img src={close} className="addEquipmentForm__close" alt="close icon" onClick={closeModal}></img>
             <button className="addEquipmentForm__submit" onClick={handleClick}>Submit</button>
         </section>

@@ -12,8 +12,8 @@
         ". serial serialNumber ."
         ". type typeItem ."
         ". temperature temperatureInput ."
-        ". date dateInput ."
-        ". . . .";
+        ". delivery deliveryInput ."
+        ". submit submit .";
     align-items: center;
     justify-items: center;
     color: $purple;
@@ -29,7 +29,7 @@
     &__type {
         grid-area: type;
     }
-    &__typeItem {
+    &__typeInput {
         grid-area: typeItem;
     }
     &__temperature {
@@ -38,11 +38,12 @@
     &__temperatureInput {
         grid-area: temperatureInput;
     }
-    &__date {
-        grid-area: date;
+
+    &__delivery {
+        grid-area: delivery;
     }
-    &__dateInput {
-        grid-area: dateInput;
+    &__deliveryDateInput {
+        grid-area: deliveryInput;
     }
 
     &__close {
@@ -50,6 +51,11 @@
         justify-self: end;
         height: 2rem;
         aspect-ratio: 1 / 1;
+    }
 
+    &__submit {
+        grid-area: submit;
+        width: 5rem;
+        aspect-ratio: 3 / 1;
     }
 }

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { deleteSupplier, getSupplier } from "../../Utils/APIcalls";
+import { deleteSupplier } from "../../Utils/APIcalls";
 import Modal from "../Modal/Modal";
 import "./Supplier.scss";
 import add from "../../Data/Images/addSupplier.svg";
