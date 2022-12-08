@@ -1,0 +1,75 @@
+.deliverySearchOptions {
+
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 10% 20% 20% 20% 20% 10%;
+    grid-template-rows: 10% 25% 30% 30% 5%;
+    grid-template-areas: 
+        ". . title title . ."
+        ". supplier type date accepted ."
+        ". supplierOptions typeOptions dateOptions acceptedOptions ."
+        ". searchSupplier searchType searchDate searchAccepted .";
+    grid-gap: 0.5rem;
+    justify-items: center;
+
+    &__title {
+        grid-area: title;
+    }
+
+    &__supplier {
+        grid-area: supplier;
+    }
+
+    &__type {
+        grid-area: type;
+    }
+
+    &__date {
+        grid-area: date;
+    }
+
+    &__accepted {
+        grid-area: accepted;
+    }
+
+    &__searchSupplier {
+        grid-area: searchSupplier;
+        width: 7rem;
+        aspect-ratio: 4 / 1;
+    }
+
+    &__searchType {
+        grid-area: searchType;
+        width: 7rem;
+        aspect-ratio: 4 / 1;
+    }
+    &__searchDate {
+        grid-area: searchDate;
+        width: 7rem;
+        aspect-ratio: 4 / 1;
+    }
+
+    &__searchAccepted {
+        grid-area: searchAccepted;
+        width: 7rem;
+        aspect-ratio: 4 / 1;
+    }
+
+    &__supplierOptions {
+        grid-area: supplierOptions;
+    }
+
+    &__typeOptions {
+        grid-area: typeOptions;
+    }
+
+    &__dateOptions {
+        grid-area: dateOptions;
+    }
+
+    &__acceptedOptions {
+        grid-area: acceptedOptions;
+    }
+
+}

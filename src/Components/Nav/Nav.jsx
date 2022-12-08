@@ -21,7 +21,9 @@ const Nav = () => {
                     <Link to="/addDelivery">
                         <p className="nav__add">Add delivery</p>
                     </Link>
-                    <p className="nav__search">Search deliveries</p>
+                    <Link to="/deliveries">
+                        <p className="nav__search">Search deliveries</p>
+                    </Link>
                 </div>
                 <div className="nav__equipment">
                     <img src={equipment} alt="equipment logo"></img>

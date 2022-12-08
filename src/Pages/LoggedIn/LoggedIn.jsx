@@ -5,6 +5,7 @@ import Nav from "../../Components/Nav/Nav";
 import Deliveries from "../Deliveries/Deliveries";
 import Equipment from "../Equipment/Equipment";
 import Home from "../Home/Home";
+import FilterDelivery from "../../Components/FilterDeliveries/FilterDelivery";
 
 const LoggedIn = () => {
 
@@ -60,7 +61,15 @@ const LoggedIn = () => {
                             getAllSuppliers={getAllSuppliers}
                         />
                     </>
-                } />  
+                } /> 
+            <Route 
+                path="/deliveries" 
+                element={
+                    <>
+                        <Nav />
+                        <FilterDelivery suppliers={suppliers}/>
+                    </>
+                } />   
         </Routes>
     )
 

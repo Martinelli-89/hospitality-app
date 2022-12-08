@@ -59,8 +59,17 @@ export const addDelivery = async (delivery) => {
         body: JSON.stringify(delivery)
     };
 
-    const response = await fetch("http://localhost:8080/delivery", requestOptions);
+    const response = await fetch(`http://localhost:8080/delivery`, requestOptions);
     return response.status;
+}
+
+export const searchDeliveryBySupplier = async(supplier) => {
+
+    const response = await fetch(`http://localhost:8080/deliveries/supplier=${supplier}`);
+    const data = await response.json();
+
+    return data;
+
 }
 
 

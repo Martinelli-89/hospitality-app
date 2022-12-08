@@ -35,7 +35,7 @@ const NewDelivery = ({closeModal, data}) => {
             <p className="addDeliveryForm__type">Type</p>
             <select className="addDeliveryForm__typeInput" value={delivery.type} name={"type"} onChange={handleChange}>
                 <option value="Frozen">Frozen</option>
-                <option value="Chilled">Freezer</option>
+                <option value="Chilled">Chilled</option>
                 <option value="Ambient">Ambient</option>
             </select>
             <p className="addDeliveryForm__temperature">Temperature</p>
