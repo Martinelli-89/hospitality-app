@@ -10,15 +10,20 @@ import addSupplierSvg from "../../Data/Images/addSupplierVan.svg";
 const Deliveries = ({suppliers, getAllSuppliers}) => {
 
     const [modal, setModal] = useState (false);
+    const [filter, setFilter] = useState("");
 
     const toggleModal = () => { setModal(!modal) }
+
+    const updateFilter = (e) => {
+        setFilter(e.target.value);
+    }
 
     return (
 
         <section className="deliveries">
             <section className="deliveries__grid">
                 <div className="deliveries__options">
-                    <Search />
+                    <Search updateFilter={updateFilter} filter={filter}/>
                     <div className="deliveries__addSupplier">
                         <AddButton 
                             text="Add supplier" 
@@ -34,7 +39,9 @@ const Deliveries = ({suppliers, getAllSuppliers}) => {
             </section>
             <div className="deliveries__data">
                 {suppliers.map((supplier, index) => { 
-                    return <Supplier key={index} name={supplier} getAllSuppliers={getAllSuppliers}/>
+                    if(supplier.toLowerCase().includes(filter.toLowerCase())) {
+                        return <Supplier key={index} name={supplier} getAllSuppliers={getAllSuppliers}/>
+                    }
                 })}
             </div>
             {modal && <Modal type="supplier" close={toggleModal} getAllSuppliers={getAllSuppliers}/>}

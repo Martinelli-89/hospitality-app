@@ -66,6 +66,8 @@
 
     &__dateOptions {
         grid-area: dateOptions;
+        display: flex;
+        flex-direction: column ;
     }
 
     &__acceptedOptions {

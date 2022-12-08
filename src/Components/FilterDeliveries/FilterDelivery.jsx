@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { searchDeliveryBySupplier } from "../../Utils/APIcalls";
 import Delivery from "../Delivery/Delivery";
 import SearchDelivery from "../SearchDelivery/SearchDelivery";
 import "./FilterDelivery.scss";
@@ -9,8 +8,8 @@ const DeliveryData = ({suppliers}) => {
 
     const [deliveries, setDeliveries] = useState ([]);
 
-    const updateDeliveries = async(supplier) => {
-        setDeliveries(await searchDeliveryBySupplier(supplier));
+    const updateDeliveries = async(searchFunction) => {
+        setDeliveries(await searchFunction);
     }
 
     return (

@@ -72,6 +72,39 @@ export const searchDeliveryBySupplier = async(supplier) => {
 
 }
 
+export const searchDeliveryByType = async(type) => {
+
+    const response = await fetch(`http://localhost:8080/deliveries/type=${type}`);
+    const data = await response.json();
+
+    return data;
+
+}
+
+export const searchDeliveryByAcceptance = async(accepted) => {
+
+    const response = await fetch(`http://localhost:8080/deliveries/accepted=${accepted}`);
+    const data = await response.json();
+
+    return data;
+
+}
+
+export const searchDeliveryByDate = async(dateOption, date) => {
+
+    let response;
+
+    if(dateOption == "before") {
+        response = await fetch(`http://localhost:8080/deliveries/deliveredBefore=${date}`);
+    } else {
+        response = await fetch(`http://localhost:8080/deliveries/deliveredAfter=${date}`);
+    }
+    const data = await response.json();
+
+    return data;
+
+}
+
 
 //EQUIPMENT
 

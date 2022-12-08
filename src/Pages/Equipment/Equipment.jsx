@@ -9,9 +9,14 @@ import addItem from "../../Data/Images/addItem.svg";
 const Equipment = ({equipment, getAllEquipment}) => {
 
     const [modal, setModal] = useState(false);
+    const [filter, setFilter] = useState("");
 
     const toggleModal = () => {
         setModal(!modal);
+    }
+
+    const updateFilter = (e) => {
+        setFilter(e.target.value);
     }
 
     return (
@@ -19,7 +24,7 @@ const Equipment = ({equipment, getAllEquipment}) => {
         <section className="equipment">
             <section className="equipment__grid">
                 <div className="equipment__options">
-                    <Search />
+                    <Search updateFilter={updateFilter} filter={filter}/>
                     <div className="equipment__addItem">
                         <AddButton 
                             text="Add item" 
@@ -37,7 +42,9 @@ const Equipment = ({equipment, getAllEquipment}) => {
             </section>
             <div className="equipment__data">
                 {equipment.map((item,index) => {
-                    return <Item type={item[0].type} serial={item[0].serial_number} key={Math.random()*index*Math.random()} getAllEquipment={getAllEquipment}/>
+                    if(item[0].serial_number.toLowerCase().includes(filter.toLowerCase())) {
+                        return <Item type={item[0].type} serial={item[0].serial_number} key={Math.random()*index*Math.random()} getAllEquipment={getAllEquipment}/>
+                    }
                 })}
             </div>
             {modal && <Modal type={"item"} close={toggleModal} getAllEquipment={getAllEquipment}/>}

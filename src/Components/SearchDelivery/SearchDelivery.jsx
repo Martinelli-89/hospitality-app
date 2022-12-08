@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { searchDeliveryBySupplier, searchDeliveryByType, searchDeliveryByAcceptance, searchDeliveryByDate } from "../../Utils/APIcalls";
 import AddButton from "../AddButton/AddButton";
 import "./SearchDelivery.scss";
 import search from "../../Data/Images/search.svg";
@@ -8,6 +9,8 @@ const SearchDelivery = ({suppliers, updateDeliveries}) => {
     const[supplier, setSupplier] = useState(suppliers[0]);
     const [type, setType] = useState("Frozen");
     const [accepted, setAccepted] = useState(true);
+    const [date, setDate] = useState();
+    const [dateOption, setDateOption] = useState("before")
 
     const supplierOptions = suppliers.map((supplier, index) => {
         return <option key={index*Math.random()*12}>{supplier}</option>
@@ -25,8 +28,28 @@ const SearchDelivery = ({suppliers, updateDeliveries}) => {
         setAccepted(e.target.value);
     }
 
+    const handleDateChange = (e) => {
+        setDate(e.target.value);
+    }
+
+    const handleDateOptionChange = (e) => {
+        setDateOption(e.target.value);
+    }
+
     const supplierSearch = async() => {
-        await updateDeliveries(supplier);
+        await updateDeliveries(await searchDeliveryBySupplier(supplier));
+    }
+
+    const typeSearch = async() => {
+        await updateDeliveries(await searchDeliveryByType(type));
+    }
+
+    const acceptanceSearch = async() => {
+        await updateDeliveries(await searchDeliveryByAcceptance(accepted));
+    }
+
+    const dateSearch = async() => {
+        await updateDeliveries(await searchDeliveryByDate(dateOption, date));
     }
 
     return (
@@ -49,12 +72,12 @@ const SearchDelivery = ({suppliers, updateDeliveries}) => {
                 <AddButton text={"Search"} image={search} onClick={supplierSearch}/>
             </div>
             <div className="deliverySearchOptions__searchType">
+                <AddButton text={"Search"} image={search} onClick={typeSearch}/>
+            </div>
+            <div className="deliverySearchOptions__searchDate" onClick={dateSearch}>
                 <AddButton text={"Search"} image={search}/>
             </div>
-            <div className="deliverySearchOptions__searchDate">
-                <AddButton text={"Search"} image={search}/>
-            </div>
-            <div className="deliverySearchOptions__searchAccepted">
+            <div className="deliverySearchOptions__searchAccepted" onClick={acceptanceSearch}>
                 <AddButton text={"Search"} image={search}/>
             </div>
             <div className="deliverySearchOptions__supplierOptions">
@@ -70,11 +93,11 @@ const SearchDelivery = ({suppliers, updateDeliveries}) => {
                 </select>
             </div>
             <div className="deliverySearchOptions__dateOptions">
-                <select className="deliverySearchOptions__dateOptionsDropdown">
+                <select className="deliverySearchOptions__dateOptionsDropdown" value={dateOption} onChange={handleDateOptionChange}>
                     <option value="before">Delivered before</option>
                     <option value="after">Delivered after</option>
                 </select>
-                <input type={"date"}></input>
+                <input type={"date"}  value={date} onChange={handleDateChange}></input>
             </div>
             <div className="deliverySearchOptions__acceptedOptions">
             <select className="deliverySearchOptions__acceptedOptionsDropdown" value={accepted} onChange={handleAcceptedChange}>
