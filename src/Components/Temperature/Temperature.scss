@@ -1,0 +1,33 @@
+@use "../../Styles/color.scss" as *;
+
+.temperatureCard {
+
+    width: 98%;
+    height: 2rem;
+    display: grid;
+    grid-template-columns: 30% 23% 23% 27%;
+    grid-area: "supplier type temp date";
+    justify-items: center;
+    align-items: center;
+    background-color: $cream;
+    border-radius: 25px;
+    margin-bottom: 1rem;
+    color:$dark-light;
+
+    &__supplier {
+        grid-area: supplier;
+    }
+
+    &__type {
+        grid-area: type;
+    }
+
+    &__temperature {
+        grid-area: temperature;
+    }
+
+    &__date {
+        grid-area: date;
+    }
+
+}

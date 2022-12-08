@@ -35,11 +35,11 @@ const AddTemperature = ({closeModal, data}) => {
             <select className="addTemperatureForm__typeInput" value={temperature.equipmentType} name={"equipmentType"} onChange={handleChange}>
                 <option value="Frozen">Frozen</option>
                 <option value="Chilled">Chilled</option>
-                <option value="Ambient">Ambient</option>
+                <option value="Hot display">Hot display</option>
             </select>
             <p className="addTemperatureForm__temperature">Temperature</p>
             <input className="addTemperatureForm__temperatureInput"  value={temperature.temperature} name={"temperature"} onChange={handleChange}></input>
-            <p className="addTemperatureForm__delivery">Delivery date</p>
+            <p className="addTemperatureForm__delivery">Day taken</p>
             <input className="addTemperatureForm__deliveryDateInput" type="date"  value={temperature.date} name={"date"} onChange={handleChange}></input>
             <img src={close} className="addTemperatureForm__close" alt="close icon" onClick={closeModal}></img>
             <button className="addTemperatureForm__submit" onClick={handleSubmit}>Submit</button>

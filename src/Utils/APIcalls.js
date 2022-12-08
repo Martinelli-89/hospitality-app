@@ -170,3 +170,34 @@ export const addTemperature = async (temperature) => {
     const response = await fetch("http://localhost:8080/temperature", requestOptions);
     return response.status;
 }
+
+export const getTemperatureBySerial = async (serial) => {
+
+    const response = await fetch(`http://localhost:8080/temperature/serial=${serial}`);
+    const data = await response.json();
+    
+    return data; 
+}
+
+export const getTemperatureByType = async (type) => {
+
+    const response = await fetch(`http://localhost:8080/temperature/type=${type}`);
+    const data = await response.json();
+    
+    return data; 
+}
+
+export const getTemperatureByDate = async(dateOption, date) => {
+
+    let response;
+
+    if(dateOption == "before") {
+        response = await fetch(`http://localhost:8080/temperature/enteredBefore=${date}`);
+    } else {
+        response = await fetch(`http://localhost:8080/temperature/enteredAfter=${date}`);
+    }
+    const data = await response.json();
+
+    return data;
+
+}

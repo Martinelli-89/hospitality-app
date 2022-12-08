@@ -33,7 +33,9 @@ const Nav = () => {
                     <Link to="/addTemperature">
                         <p className="nav__add">Add temperature</p>
                     </Link>
-                    <p className="nav__search">Search temperatures</p>
+                    <Link to="/temperatures">
+                        <p className="nav__search">Search temperatures</p>
+                    </Link>
                 </div>
             </div>
             <div className="nav__logout">

@@ -1,0 +1,68 @@
+@use "../../Styles/color.scss" as *;
+
+.temperatureData {
+
+    width: 80%;
+    height: 100%;
+    background-color: $dark;
+    color: $purple;
+    padding-top: 2rem;
+
+
+    &__grid {
+        height: 30%;
+        display: grid;
+        grid-template-areas: 
+            "title title title title"
+            "options options options options"
+            "supplier type temperature date";
+        grid-template-columns: 30% 23% 23% 27%;
+        grid-template-rows: 0.5fr 1.5fr 1fr;
+        justify-items: center;
+        align-items: center;
+
+    }
+
+    &__options{
+        width: 100%;
+        height: 100%;
+        grid-area: options;
+        display: flex;
+        //justify-content: center;
+        align-items: center;
+        justify-self: end;
+        padding-right: 3rem;
+    }
+
+    &__title {
+        grid-area: title;
+    }
+
+    &__supplier {
+        grid-area: supplier;
+    }
+
+    &__type {
+        grid-area: type;
+    }
+
+    &__temperature {
+        grid-area: temperature;
+    }
+
+    &__date {
+        grid-area: date;
+    }
+
+    &__accepted {
+        grid-area: accepted;
+    }
+
+    &__data {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+}
